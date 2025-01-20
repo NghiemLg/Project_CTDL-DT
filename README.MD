@@ -1,4 +1,4 @@
-### **Mô tả giải thuật Kruskal’s Algorithm theo các bước phân tích sơ bộ**
+### **Mô tả giải thuật Kruskal’s Algorithm **
 
 #### **1. Bài toán:**
 Cho một đồ thị vô hướng, liên thông và có trọng số, mục tiêu là tìm **Minimum Spanning Tree (MST)** - một cây bao trùm với tổng trọng số của các cạnh nhỏ nhất, kết nối tất cả các đỉnh của đồ thị.

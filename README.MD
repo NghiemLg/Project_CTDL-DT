@@ -30,22 +30,4 @@ Kruskal’s Algorithm là một thuật toán **tham lam** (greedy), thực hi�
 
 ---
 
-#### **3. Pseudocode:**
-
-```text
-Function Kruskal(G):
-    MST = {}  # Khởi tạo cây bao trùm rỗng
-    sort_edges(G.E)  # Sắp xếp các cạnh theo trọng số tăng dần
-    
-    for vertex v in G.V:
-        MAKE-SET(v)  # Mỗi đỉnh ban đầu là một tập hợp riêng lẻ
-    
-    for edge (u, v) in G.E:
-        if FIND(u) != FIND(v):  # Kiểm tra nếu u và v thuộc các tập khác nhau
-            MST.add(edge)  # Thêm cạnh vào MST
-            UNION(u, v)  # Hợp nhất hai tập hợp của u và v
-    
-    return MST
-```
-
 ---

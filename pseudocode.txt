@@ -1,0 +1,50 @@
+Function Kruskal(G):
+    INPUT:
+        G = (V, E)  // Đồ thị G với V là tập đỉnh, E là tập cạnh
+    
+    OUTPUT:
+        MST  // Tập cạnh của cây bao trùm nhỏ nhất (Minimum Spanning Tree)
+
+    // STEP 1: Khởi tạo
+    MST = {}  // Tập cạnh ban đầu rỗng
+    parent = {}  // Lưu cha của mỗi đỉnh
+    rank = {}    // Lưu độ sâu của tập hợp
+
+    // Khởi tạo mỗi đỉnh là một tập hợp riêng biệt
+    for each vertex v in V:
+        parent[v] = v  // Ban đầu mỗi đỉnh là cha của chính nó
+        rank[v] = 0    // Độ sâu ban đầu của tập hợp là 0
+
+    // Hàm FIND: Tìm đại diện của tập hợp chứa đỉnh v
+    Function FIND(v):
+        if parent[v] != v:
+            parent[v] = FIND(parent[v])  // Tối ưu hóa bằng nén đường đi
+        return parent[v]
+
+    // Hàm UNION: Hợp nhất hai tập hợp chứa u và v
+    Function UNION(u, v):
+        root_u = FIND(u)
+        root_v = FIND(v)
+        if root_u != root_v:
+            if rank[root_u] > rank[root_v]:
+                parent[root_v] = root_u  // Gắn root_v vào root_u
+            else if rank[root_u] < rank[root_v]:
+                parent[root_u] = root_v  // Gắn root_u vào root_v
+            else:
+                parent[root_v] = root_u  // Nếu rank bằng nhau, gắn root_v vào root_u
+                rank[root_u] += 1  // Tăng rank của root_u
+
+    // STEP 2: Sắp xếp các cạnh theo trọng số tăng dần
+    Sort E in ascending order by weight
+
+    // STEP 3: Xây dựng MST
+    for each edge (u, v, weight) in E:
+        if FIND(u) != FIND(v):  // Nếu u và v thuộc các tập hợp khác nhau
+            MST.add((u, v, weight))  // Thêm cạnh vào MST
+            UNION(u, v)  // Hợp nhất hai tập hợp của u và v
+        
+        if size(MST) == |V| - 1:  // Nếu số cạnh trong MST bằng |V| - 1 (hoàn thành MST)
+            break  // Dừng vòng lặp khi đã xây dựng đủ MST
+
+    // STEP 4: Trả kết quả
+    return MST  // Trả về tập cạnh tạo thành cây bao trùm nhỏ nhất

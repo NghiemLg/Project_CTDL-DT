@@ -50,22 +50,3 @@ Function Kruskal(G):
 ```
 
 ---
-
-#### **4. Đánh giá theo tiêu chí:**
-
-1. **Mức độ khó của giải thuật (3 điểm):**
-   - Khó vì yêu cầu hiểu biết về cấu trúc dữ liệu **Union-Find** để phát hiện chu trình và tổ chức thuật toán.
-   - Cần sắp xếp cạnh và xử lý cấu trúc rời rạc, phù hợp với đồ thị lớn.
-
-2. **Mức độ tường minh khi trình bày giải thuật (4 điểm):**
-   - Giải thuật chia thành các bước rõ ràng:
-     - Sắp xếp cạnh.
-     - Kiểm tra chu trình.
-     - Xây dựng MST.
-   - Mã giả minh họa từng bước một cách dễ hiểu.
-
-3. **Mức độ clean code trong chương trình cài đặt (4 điểm):**
-   - Nếu được triển khai, mã cần sử dụng cấu trúc dữ liệu tối ưu (như danh sách cạnh) và các hàm rời rạc rõ ràng (Find, Union).
-   - Đảm bảo tính tổng quát và dễ mở rộng.
-
-Hãy cho tôi biết nếu bạn muốn chuyển sang cài đặt chi tiết giải thuật hoặc giải thích thêm!
